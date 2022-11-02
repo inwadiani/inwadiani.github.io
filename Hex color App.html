@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Hex color App</title>
+</head>
+<body>
+<main>
+    <div class="container">
+        <div id="hex-colors">
+            <h1>Click the button below to generate a random Hex background</h1>
+            <h2>background: linear-gradient(to right, #<span "hexcode1">ffffff</span>, #<span "hexcode2">ffffff</span>;</h2>
+        </div>
+        <button id="submit" class="btn btn-light">Click Me</button>
+
+    </div>
+</main>
+<script>
+     document.querySelector("#submit").addEventListener("click", () => {
+ var hex_numbers = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"];
+ var hexcode1 ="";
+ var hexcode2 ="";
+ var random_index = 0;
+ 
+ for(let i = 0; i < 6;i++){
+    random_index = Math.floor(Math.random() * hex_numbers.length);
+      hexcode1 += hex_numbers[random_index];
+    random_index = Math.floor(Math.random() * hex_numbers.length);
+      hexcode2 += hex_numbers[random_index];
+ }
+ document.body.style.background = `linear-gradient(to right, #${hexcode1}, #${hexcode2})`;
+ document.querySelector("#hexcode1").textContent = hexcode1;
+ document.querySelector("hexcode2").textcontent = hexcode2;
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
